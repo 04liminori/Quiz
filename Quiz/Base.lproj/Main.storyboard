@@ -27,6 +27,16 @@
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAd-fB-f5n">
+                                <rect key="frame" x="122" y="487" width="131" height="72"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="23"/>
+                                <state key="normal" title="START!">
+                                    <color key="titleColor" red="0.20784313730000001" green="0.043137254899999998" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CAX-1M-eft" kind="modal" id="2Zs-uv-cf6"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="04limited sazabys Quiz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkC-ri-sME">
                                 <rect key="frame" x="119" y="267" width="256" height="39"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="22"/>
@@ -35,13 +45,6 @@
                                 <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="2" height="1"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAd-fB-f5n">
-                                <rect key="frame" x="122" y="487" width="131" height="72"/>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="23"/>
-                                <state key="normal" title="START!">
-                                    <color key="titleColor" red="0.20784313730000001" green="0.043137254899999998" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.99215686274509807" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -49,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244.5" y="310.5"/>
+            <point key="canvasLocation" x="269.5" y="310.5"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="yB6-aL-kZe">
@@ -69,6 +72,9 @@
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="choiceAnswer:" destination="CAX-1M-eft" eventType="touchUpInside" id="J2Q-md-tdJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpv-YP-4er">
                                 <rect key="frame" x="97" y="386" width="180" height="50"/>
@@ -76,6 +82,9 @@
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="choiceAnswer:" destination="CAX-1M-eft" eventType="touchUpInside" id="wup-E4-8l5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DsC-2N-LZ0">
                                 <rect key="frame" x="97" y="451" width="180" height="50"/>
@@ -83,6 +92,9 @@
                                 <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="15"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="choiceAnswer:" destination="CAX-1M-eft" eventType="touchUpInside" id="u0r-aU-ZvX"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="問題文" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7DA-O2-HQk">
                                 <rect key="frame" x="42" y="114" width="290" height="159"/>
@@ -100,6 +112,7 @@
                         <outlet property="choiceButton2" destination="bpv-YP-4er" id="fev-Pe-tg0"/>
                         <outlet property="choiceButton3" destination="DsC-2N-LZ0" id="n0z-zw-K8N"/>
                         <outlet property="quizTextView" destination="7DA-O2-HQk" id="gKt-me-Jth"/>
+                        <segue destination="zyf-4w-dHJ" kind="modal" identifier="toResultView" id="cie-aU-3bA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2U-Nr-Jgs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,8 +132,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJN-Bn-8VE">
-                                <rect key="frame" x="118" y="192" width="139" height="62"/>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="22"/>
+                                <rect key="frame" x="118" y="192" width="139" height="96"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -144,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="if1-FV-nds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303.5" y="310.5"/>
+            <point key="canvasLocation" x="1249.5" y="310.5"/>
         </scene>
     </scenes>
     <resources>

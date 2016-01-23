@@ -31,11 +31,11 @@ class QuizViewController: UIViewController {
         var tmpArray = [AnyObject]()
         
         //tmpArrayに問題文と3つの選択肢と答えの番号の入った配列の番号の入った配列を追加していく
-        tmpArray.append(["問題文1","選択肢1","選択肢2","選択肢3",1])
-        tmpArray.append(["問題文2","選択肢1","選択肢2","選択肢3",2])
-        tmpArray.append(["問題文3","選択肢1","選択肢2","選択肢3",2])
-        tmpArray.append(["問題文4","選択肢1","選択肢2","選択肢3",3])
-        tmpArray.append(["問題文5","選択肢1","選択肢2","選択肢3",3])
+        tmpArray.append(["フォーリミが結成されたのはどこ？","名古屋","横浜","宇都宮",1])
+        tmpArray.append(["J-WAVEのラジオ番組、THE KINGS PLACEにてフォーリミがナビゲーターを務めているのは何曜日？","火曜日","水曜日","木曜日",2])
+        tmpArray.append(["フォーリミのメジャーデビューアルバムのタイトルはどれ？","TOY","CAVU","Marking all!!!",2])
+        tmpArray.append(["オリコンインディーズランキングで一位を獲得したアルバムはどれ？","YON","sonor","monolith",3])
+        tmpArray.append(["4月2,3日に行われるフォーリミ主催のフェスの名前はどれ？","Limited Fes","04 Fes","YON FES",3])
         
         
         //問題をシャッフルしてquizArrayに格納する
@@ -55,11 +55,12 @@ class QuizViewController: UIViewController {
         
         //選択肢のボタンにそれぞれ選択肢のテキストをセット
         choiceButton1.setTitle((quizArray[0][1] as! String), forState: .Normal)
-        choiceButton2.setTitle((quizArray[0][1] as! String), forState: .Normal)
-        choiceButton3.setTitle((quizArray[0][1] as! String), forState: .Normal)
+        choiceButton2.setTitle((quizArray[0][2] as! String), forState: .Normal)
+        choiceButton3.setTitle((quizArray[0][3] as! String), forState: .Normal)
     }
     
     @IBAction func choiceAnswer(sender: UIButton) {
+        //引数のsender.tagに格納されているTagの値を使って処理を区別する
         if quizArray[0][4] as! Int == sender.tag {
             
             //正解数を増やす
@@ -77,6 +78,18 @@ class QuizViewController: UIViewController {
         }
     }
 
+    func performSegueToResult() {
+        performSegueWithIdentifier("toResultView", sender: nil)
+    }
+    
+    //セグエが呼ばれた時に呼ばれるメソッド
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toResultView") {
+            
+            let resultView = segue.destinationViewController as! ResultViewController
+            resultView.correctAnswer = self.correctAnswer
+        }
+    }
 
         // Do any additional setup after loading the view.
 
